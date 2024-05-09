@@ -1,0 +1,96 @@
+import pandas as pd
+air=pd.read_csv("air.csv")
+air.shape
+air.head()
+air.count()
+air.isnull().sum()
+air.describe()
+air.info()
+
+#data clean
+A=air.dropna()
+A.shape
+A=air.fillna(0)
+A.shape
+A.head()
+
+#error correcting
+A=air.fillna(method='pad')
+A.head()
+A=air.fillna(method='backfill')
+A.head()
+
+import numpy as np
+A=air['ozone'].replace (np.NaN, air['ozone'],mean()) 
+A.head()
+
+A=air['ozone'].replace (np.NaN, air['ozone'],median()) 
+A.head()
+
+A=air['ozone'].replace (np.NaN, air['ozone'],mode()) 
+A.head()
+
+from sklearn.impute import simpleimputer
+imp= simpleimputer(missing_value=np.nan,strategy='mean'
+A=imp.fit_transform(air)
+A
+
+imp= simpleimputer(missing_value=np.nan,strategy='most_frequent'
+A=imp.fit_transform(air)
+
+A=pd.dataframe(A, columns=air.columns)
+A.head()
+
+from sklearn.model_selection import train_test_split
+len(A)
+train_test_split(A)
+len(train)
+len(test)
+train.head()
+train,test=train_test_split(A, test_size, test_size=0.20)
+len(train)
+len(test)
+train.head()
+
+from sklearn.preprocessing import standardscaler
+scaler=standardscaler()
+B=scaler.fit_transform(A)
+pd.DataFrame(B).describe()
+
+from sklearn.preprocessing import minmaxscaler
+scaler=minmaxscaler()
+B=scaler.fit_transform(A)
+pd.DataFrame(B).describe()
+
+from sklearn.preprocessing import binarizer
+bin=binarizer(threshold=0.5)
+B=bin.fit_transform(B)
+pd.Dataframe(B)
+
+data=pd.read_csv('student.csv')
+
+from sklearn.preprocessing import labelencoder
+le= labelencoder()
+B=le.fit_transform(data['name']
+B
+array([6,4,7,3,5,8,2,1,0,9])
+B=data[:]
+B['name']=le.fit_transform(data['name']
+B
+
+from sklearn.linear_model import linearregression
+X=A['ozone'].values
+X=X.reshape(-1,1)
+Y=A['temp']
+model=linearregression()
+model.fit(X,Y)
+linearregression(copy X=true, fit_intercept=true, n_jobs=none,normal=false)
+model.score(X,Y)*100
+model.predict([128])
+array([95.12601986])
+ 
+import matplotlib.pyplot as plt
+plt.scatter(X,Y)
+<matplot.collections.Pathcollection at 0x7f7300363908>
+
+import seaborn as sns

@@ -1,0 +1,28 @@
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.pyplot as plt
+df=pd.read_csv("heart.csv")
+df
+df.head()
+df.isnull().sum()
+df.fillna(method="ffill",inplace=true)
+df.isnill().sum()
+plt.hist(df['age'])
+plt.xlabel('age')
+plt.plot()
+
+sns.histplot(df['chol'])
+<AxesSubplot:xlabel='chol',ylabel='count'>
+
+sns.barplot(y='chol',x='chestpain','data=df)
+<AxesSubplot:xlabel='chest pain',ylabel='chol'>
+ 
+sns.lineplot(y='chol',x='chestpain','data=df)
+plt.show()
+
+sns.scatterplot(y='Maxhr',x='restbp','data=df)
+<AxesSubplot:xlabel='restbp',ylabel='Maxhr'>
+
+sns.boxplot(y='chol',x='thal','data=df)
+<AxesSubplot:xlabel='thal',ylabel='chol'>

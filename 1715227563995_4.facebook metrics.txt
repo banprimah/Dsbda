@@ -1,0 +1,35 @@
+download dataset=> https://bit.ly/3a4DT9t
+
+import pandas as pd
+import numpy as np
+
+df=pd.read_csv("facebook dataset.csv", sep';')
+df
+df.describe()
+
+#create subset
+ df1= df[['Page total likes','Category','Post month']].loc[0:15]
+ df1
+
+df2=df[['Page total likes','Category','Post month']].loc[16:30]
+ df2
+
+#merge data
+merge_df=pd.concat([df1,df2])
+merged_df
+
+#sort data <default is ascending>
+sort_values=df.sort_values (''Page total likes', ascending=False
+
+#transposing data
+df.transpose()
+
+#shape and reshape
+df.shape()
+
+pivot_table=pd.pivot_table(df.index=['type','category'],values='like')
+pivot_table
+
+reshaping= np.array([1,2,3,4,5,6])
+reshaping.reshape(3,2)
+

@@ -1,0 +1,29 @@
+import requests
+import bs4
+req=requests.get('https://books.toscrape.com/catalogue/page-1.html')
+print (req)
+req.content
+soup=bs4.beautifulsoup(req.txt)
+soup
+
+#fetch review:
+reviews=soup.findall('div',('class':'classname'));
+for review in reviews;
+print(review.get_txt())
+
+#fetch ratings:
+ratings=soup.find('div',('class':'classname')).get_txt();
+
+individual_ratings=soup.findall('div',('class':'classname'));
+for indi_rating in individual_ratings;
+print(indi_rating.get_txt());
+
+#fetch tags:
+tags=soup.find('div',('class':'classname')).get_txt();
+tags
+
+#fetch customer name:
+cutomer_name=soup.findall('div',('class':'classname'));
+for cust_name in customer_name;
+print(cust_name.get_txt());
+
